@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "65613a91-d55a-40fd-9996-385ad3523034",
+		"name": "WPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "WindPowerPlatform Service",
+			"item": [
+				{
+					"name": "Get All Platforms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/WindPowerPlatforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"WindPowerPlatforms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Platform by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/WindPowerPlatforms/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"WindPowerPlatforms",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Platform",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Enercon\",\r\n    \"manufacturer\": \"ENERCON GmbH\",\r\n    \"description\": \"German wind power company\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/WindPowerPlatforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"WindPowerPlatforms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

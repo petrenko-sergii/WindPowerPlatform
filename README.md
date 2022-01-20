@@ -1,0 +1,1 @@
+Test-app "WindPowerPlatform" is developed by .NET 5.0 (backend/microservices).
