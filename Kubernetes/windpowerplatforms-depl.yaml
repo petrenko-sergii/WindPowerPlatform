@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: windpowerplatforms-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: windpowerplatformservice
+  template:
+    metadata:
+      labels:
+        app: windpowerplatformservice
+    spec:
+      containers:
+        - name: windpowerplatformservice 
+          image: petrenkodocker/windpowerplatformservice:latest

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WPP\\WindPowerPlatformService\\WindPowerPlatformService.csproj": {}
+    "D:\\wpp\\WindPowerPlatformService\\WindPowerPlatformService.csproj": {}
   },
   "projects": {
-    "D:\\WPP\\WindPowerPlatformService\\WindPowerPlatformService.csproj": {
+    "D:\\wpp\\WindPowerPlatformService\\WindPowerPlatformService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WPP\\WindPowerPlatformService\\WindPowerPlatformService.csproj",
+        "projectUniqueName": "D:\\wpp\\WindPowerPlatformService\\WindPowerPlatformService.csproj",
         "projectName": "WindPowerPlatformService",
-        "projectPath": "D:\\WPP\\WindPowerPlatformService\\WindPowerPlatformService.csproj",
+        "projectPath": "D:\\wpp\\WindPowerPlatformService\\WindPowerPlatformService.csproj",
         "packagesPath": "C:\\Users\\Petrenko\\.nuget\\packages\\",
-        "outputPath": "D:\\WPP\\WindPowerPlatformService\\obj\\",
+        "outputPath": "D:\\wpp\\WindPowerPlatformService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

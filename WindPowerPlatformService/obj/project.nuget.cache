@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NPuIMR7cpj1O9yxVbybYnG/w2aqghq8yvOrOQ6119h+ST7UPWIYgSwyPjXeucXC1Pg6ypzRHD4EYMryHqF0IZQ==",
+  "dgSpecHash": "E5dphaZHmmY/xNdArErELNeqFtC369FqnkFyTBn9/OoKM1m7JHtke8G9eCI86h0B6pTtDZP6sdX8gKh+Rjr5vw==",
   "success": true,
-  "projectFilePath": "D:\\WPP\\WindPowerPlatformService\\WindPowerPlatformService.csproj",
+  "projectFilePath": "D:\\wpp\\WindPowerPlatformService\\WindPowerPlatformService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Petrenko\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Petrenko\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

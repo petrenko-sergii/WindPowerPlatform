@@ -79,6 +79,31 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Docker",
+			"item": [
+				{
+					"name": "Get All Platforms (Docker)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/WindPowerPlatforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"WindPowerPlatforms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
