@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WindPowerPlatformService.Dtos;
 using WindPowerPlatformService.Models;
 using WindPowerPlatformService.Data;
+using WindPowerPlatformService.SyncDataServices.Http;
 
 namespace WindPowerPlatformService.Controllers
 {
@@ -15,11 +16,16 @@ namespace WindPowerPlatformService.Controllers
     {
         private readonly IWindPowerPlatformRepo _repository;
         private readonly IMapper _mapper;
+        private readonly  ICommandDataClient _commandDataClient;
      
-        public WindPowerPlatformsController(IWindPowerPlatformRepo repository, IMapper mapper)
+        public WindPowerPlatformsController(
+            IWindPowerPlatformRepo repository, 
+            IMapper mapper,
+            ICommandDataClient commandDataClient)
         {
             _repository = repository;
             _mapper = mapper;
+            _commandDataClient = commandDataClient;
         }
 
         [HttpGet]
@@ -46,7 +52,7 @@ namespace WindPowerPlatformService.Controllers
         }
 
         [HttpPost]
-        public ActionResult<WindPowerPlatformReadDto> CreatePlatform(WindPowerPlatformCreateDto platformCreateDto)
+        public async Task<ActionResult<WindPowerPlatformReadDto>> CreatePlatform(WindPowerPlatformCreateDto platformCreateDto)
         {
             var platformModel = _mapper.Map<WindPowerPlatform>(platformCreateDto);
 
@@ -55,6 +61,15 @@ namespace WindPowerPlatformService.Controllers
 
             var platformReadDto = _mapper.Map<WindPowerPlatformReadDto>(platformModel);
             
+            try
+            {
+                await _commandDataClient.SendPlatformToCommand(platformReadDto);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"--> Could not send synchronously: {ex.Message}");
+            }
+
             return CreatedAtRoute(nameof(GetPlatformById), new {Id = platformReadDto.Id }, platformReadDto);
         }
     }
