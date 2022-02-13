@@ -104,6 +104,175 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Kubernetes",
+			"item": [
+				{
+					"name": "WindPowerPlatform Service (Node Port)",
+					"item": [
+						{
+							"name": "Get All Platforms (K8S)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30657/api/WindPowerPlatforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30657",
+									"path": [
+										"api",
+										"WindPowerPlatforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Platform by Id  (K8S)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30657/api/WindPowerPlatforms/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30657",
+									"path": [
+										"api",
+										"WindPowerPlatforms",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Platform (K8S)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Enercon\",\r\n    \"manufacturer\": \"ENERCON GmbH\",\r\n    \"description\": \"German wind power company\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30657/api/WindPowerPlatforms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30657",
+									"path": [
+										"api",
+										"WindPowerPlatforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "WindPowerPlatform Service (Nginx)",
+					"item": [
+						{
+							"name": "Create Platform (K8S / Nginx)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Enercon\",\r\n    \"manufacturer\": \"ENERCON GmbH\",\r\n    \"description\": \"German wind power company\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://wpp.com/api/WindPowerPlatforms",
+									"protocol": "https",
+									"host": [
+										"wpp",
+										"com"
+									],
+									"path": [
+										"api",
+										"WindPowerPlatforms"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms (K8S / Nginx) ",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wpp.com/api/windpowerplatforms",
+									"protocol": "https",
+									"host": [
+										"wpp",
+										"com"
+									],
+									"path": [
+										"api",
+										"windpowerplatforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Commands Service",
+			"item": [
+				{
+					"name": "Test Inbound Connection",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								"api",
+								"c",
+								"WindPowerPlatforms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
