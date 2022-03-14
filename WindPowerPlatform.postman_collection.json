@@ -117,12 +117,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:30657/api/WindPowerPlatforms",
+									"raw": "http://localhost:32210/api/WindPowerPlatforms",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "30657",
+									"port": "32210",
 									"path": [
 										"api",
 										"WindPowerPlatforms"
@@ -137,12 +137,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:30657/api/WindPowerPlatforms/2",
+									"raw": "http://localhost:32210/api/WindPowerPlatforms/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "30657",
+									"port": "32210",
 									"path": [
 										"api",
 										"WindPowerPlatforms",
@@ -167,12 +167,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:30657/api/WindPowerPlatforms",
+									"raw": "http://localhost:32210/api/WindPowerPlatforms",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "30657",
+									"port": "32210",
 									"path": [
 										"api",
 										"WindPowerPlatforms"
