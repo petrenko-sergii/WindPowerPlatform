@@ -20,18 +20,29 @@ namespace WindPowerPlatformService
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+            _env = env; 
+        }        
 
         public void ConfigureServices(IServiceCollection services)
         {
-            Console.WriteLine("--> Using InMem Db -- for WindPowerPlatformService");
+            if(_env.IsProduction())
+            {
+                Console.WriteLine("--> Using SqlServer Db -- for WindPowerPlatformService");
                 services.AddDbContext<AppDbContext>(opt =>
-                     opt.UseInMemoryDatabase("InMem"));
+                    opt.UseSqlServer(Configuration.GetConnectionString("WindPowerPlatformsConn"))); 
+            }
+            else
+            {
+                Console.WriteLine("--> Using InMem Db -- for WindPowerPlatformService");
+                services.AddDbContext<AppDbContext>(opt =>
+                     opt.UseInMemoryDatabase("InMem")); 
+            }           
 
             services.AddScoped<IWindPowerPlatformRepo, WindPowerPlatformRepo>();
             services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
@@ -68,7 +79,7 @@ namespace WindPowerPlatformService
                 endpoints.MapControllers();
             });
 
-            DbSeeder.PreparePopulation(app);
+            DbSeeder.PreparePopulation(app, env.IsProduction());
         }
     }
 }
