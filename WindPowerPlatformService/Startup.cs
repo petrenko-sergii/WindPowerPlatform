@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WindPowerPlatformService.Data;
+using WindPowerPlatformService.AsyncDataServices;
 using WindPowerPlatformService.SyncDataServices.Http;
       
 
@@ -46,6 +47,7 @@ namespace WindPowerPlatformService
 
             services.AddScoped<IWindPowerPlatformRepo, WindPowerPlatformRepo>();
             services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+            services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

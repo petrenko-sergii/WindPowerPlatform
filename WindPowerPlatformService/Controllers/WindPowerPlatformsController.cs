@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WindPowerPlatformService.Dtos;
 using WindPowerPlatformService.Models;
 using WindPowerPlatformService.Data;
+using WindPowerPlatformService.AsyncDataServices;
 using WindPowerPlatformService.SyncDataServices.Http;
 
 namespace WindPowerPlatformService.Controllers
@@ -17,15 +18,18 @@ namespace WindPowerPlatformService.Controllers
         private readonly IWindPowerPlatformRepo _repository;
         private readonly IMapper _mapper;
         private readonly  ICommandDataClient _commandDataClient;
+        private readonly  IMessageBusClient _messageBusClient;
      
         public WindPowerPlatformsController(
             IWindPowerPlatformRepo repository, 
             IMapper mapper,
-            ICommandDataClient commandDataClient)
+            ICommandDataClient commandDataClient,
+            IMessageBusClient messageBusClient)
         {
             _repository = repository;
             _mapper = mapper;
             _commandDataClient = commandDataClient;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpGet]
@@ -61,6 +65,7 @@ namespace WindPowerPlatformService.Controllers
 
             var platformReadDto = _mapper.Map<WindPowerPlatformReadDto>(platformModel);
             
+            // Send Sync Message
             try
             {
                 await _commandDataClient.SendPlatformToCommand(platformReadDto);
@@ -69,6 +74,19 @@ namespace WindPowerPlatformService.Controllers
             {
                 Console.WriteLine($"--> Could not send synchronously: {ex.Message}");
             }
+
+            // Send Async Message
+             try
+            {
+                var platformPublishedDto = _mapper.Map<WindPowerPlatformPublishedDto>(platformReadDto);
+                platformPublishedDto.Event = "WindPowerPlatform_Published";
+                _messageBusClient.PublishNewWindPowerPlatform(platformPublishedDto);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"--> Could not send asynchronously: {ex.Message}");
+            } 
+
 
             return CreatedAtRoute(nameof(GetPlatformById), new {Id = platformReadDto.Id }, platformReadDto);
         }

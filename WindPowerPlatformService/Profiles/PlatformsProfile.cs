@@ -11,6 +11,7 @@ namespace WindPowerPlatformService.Profiles
             // Source -> to Target
             CreateMap<WindPowerPlatform, WindPowerPlatformReadDto>();
             CreateMap<WindPowerPlatformCreateDto, WindPowerPlatform>();
+            CreateMap<WindPowerPlatformReadDto, WindPowerPlatformPublishedDto>();
         }
     }
 }
