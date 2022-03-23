@@ -271,6 +271,142 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get All Platforms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								"api",
+								"c",
+								"WindPowerPlatforms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Commands for Platform",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/1/commands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								"api",
+								"c",
+								"WindPowerPlatforms",
+								"1",
+								"commands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Command for Platform",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Start\",\r\n    \"description\": \"Start to produce electricity\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/1/commands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								"api",
+								"c",
+								"WindPowerPlatforms",
+								"1",
+								"commands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Command for Platform",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/1/commands/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								"api",
+								"c",
+								"WindPowerPlatforms",
+								"1",
+								"commands",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

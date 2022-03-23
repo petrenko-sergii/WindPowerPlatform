@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5qfWzhq6Kld+3cuHiOllb98Ac41QPfzZ5xluXI+sm3yOSL4pI6O9MuIg/W+YRcTLnkR1xfjJ8euH4YEqdXigUQ==",
+  "dgSpecHash": "DDgvvuHtdkGLp6RL4APdEqpIo/33uZxo/g0hLX24ThLsuiqPUzbWbbTQvrfoEh10fXp59UC6WslNkTaU9g+dfQ==",
   "success": true,
-  "projectFilePath": "D:\\wpp\\CommandsService\\CommandsService.csproj",
+  "projectFilePath": "D:\\WPP\\CommandsService\\CommandsService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Petrenko\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Petrenko\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
