@@ -236,6 +236,111 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Commands Service (Nginx)",
+					"item": [
+						{
+							"name": "Create Command for Platform",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Start\",\r\n    \"description\": \"Start to produce electricity\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://wpp.com/api/c/windpowerplatforms/6/commands",
+									"protocol": "https",
+									"host": [
+										"wpp",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"windpowerplatforms",
+										"6",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Commands for Platform",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://wpp.com/api/c/windpowerplatforms/6/commands",
+									"protocol": "https",
+									"host": [
+										"wpp",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"windpowerplatforms",
+										"6",
+										"commands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Platforms",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://wpp.com/api/c/windpowerplatforms",
+									"protocol": "https",
+									"host": [
+										"wpp",
+										"com"
+									],
+									"path": [
+										"api",
+										"c",
+										"windpowerplatforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -323,7 +428,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/1/commands",
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/5/commands",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -333,7 +438,7 @@
 								"api",
 								"c",
 								"WindPowerPlatforms",
-								"1",
+								"5",
 								"commands"
 							]
 						}
@@ -355,7 +460,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/1/commands",
+							"raw": "http://localhost:6000/api/c/WindPowerPlatforms/5/commands",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -365,7 +470,7 @@
 								"api",
 								"c",
 								"WindPowerPlatforms",
-								"1",
+								"5",
 								"commands"
 							]
 						}
