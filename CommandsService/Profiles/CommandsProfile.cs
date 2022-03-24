@@ -15,6 +15,8 @@ namespace CommandsService.Profiles
             CreateMap<WindPowerPlatform, WindPowerPlatformReadDto>();
             CreateMap<CommandCreateDto, Command>();
             CreateMap<Command, CommandReadDto>();
+            CreateMap<WindPowerPlatformPublishedDto, WindPowerPlatform>()
+                .ForMember(dest => dest.ExternalId, opt => opt.MapFrom(src => src.Id));
         }
     }
 }

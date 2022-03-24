@@ -13,6 +13,7 @@ namespace CommandsService.Data
         IEnumerable<WindPowerPlatform> GetAllPlatforms();
         void CreatePlatform(WindPowerPlatform platform);
         bool PlatformExist(int platformId);
+        bool ExternalPlatformExists(int externalPlatformId);
 
         // Commands
         IEnumerable<Command> GetCommandsForPlatform(int platformId);

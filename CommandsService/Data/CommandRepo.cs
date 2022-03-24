@@ -14,7 +14,6 @@ namespace CommandsService.Data
             _context = context;
         }
 
-
           // Platforms
         public IEnumerable<WindPowerPlatform> GetAllPlatforms()
         {
@@ -34,6 +33,11 @@ namespace CommandsService.Data
         public bool PlatformExist(int platformId)
         {
             return _context.Platforms.Any(p => p.Id == platformId);
+        }
+
+        public bool ExternalPlatformExists(int externalPlatformId)
+        {
+            return _context.Platforms.Any(p => p.ExternalId == externalPlatformId);
         }
 
         // Commands
