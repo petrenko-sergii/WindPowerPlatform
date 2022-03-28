@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using CommandsService.Data;
 using CommandsService.EventProcessing;
 using CommandsService.AsyncDataServices;
+using CommandsService.SyncDataServices.Grpc;
 
 namespace CommandsService
 {
@@ -39,6 +40,7 @@ namespace CommandsService
 
             services.AddSingleton<IEventProcessor, EventProcessor>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IWindPowerPlatformDataClient, WindPowerPlatformDataClient>();
 
             services.AddSwaggerGen(c =>
             {
@@ -65,6 +67,8 @@ namespace CommandsService
             {
                 endpoints.MapControllers();
             });
+
+            DbSeeder.PreparePopulation(app);
         }
     }
 }

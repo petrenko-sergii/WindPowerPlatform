@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "cEC3MCOBkLzyijL7YN+/HgqloUK0oMgCpD0WeFoCmMaeTMhLnPkz1J6OeDx69Pdn6J17K9o8CY9E0OeWM8cnsg==",
+  "dgSpecHash": "XsQUPRF8uA+wO56IBr8e2wiT0JcbRIyEwmBhuWCIbxB+5O/nyD9HaGe6CRtidf1M9T9hdeV/8oZHQE/51KNZCg==",
   "success": true,
   "projectFilePath": "D:\\WPP\\CommandsService\\CommandsService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Petrenko\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Petrenko\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Petrenko\\.nuget\\packages\\google.protobuf\\3.17.3\\google.protobuf.3.17.3.nupkg.sha512",
+    "C:\\Users\\Petrenko\\.nuget\\packages\\grpc.core.api\\2.37.0\\grpc.core.api.2.37.0.nupkg.sha512",
+    "C:\\Users\\Petrenko\\.nuget\\packages\\grpc.net.client\\2.38.0\\grpc.net.client.2.38.0.nupkg.sha512",
+    "C:\\Users\\Petrenko\\.nuget\\packages\\grpc.net.common\\2.38.0\\grpc.net.common.2.38.0.nupkg.sha512",
+    "C:\\Users\\Petrenko\\.nuget\\packages\\grpc.tools\\2.39.1\\grpc.tools.2.39.1.nupkg.sha512",
     "C:\\Users\\Petrenko\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Petrenko\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Petrenko\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.8\\microsoft.entityframeworkcore.5.0.8.nupkg.sha512",

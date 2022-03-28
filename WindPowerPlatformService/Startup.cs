@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using WindPowerPlatformService.Data;
 using WindPowerPlatformService.AsyncDataServices;
 using WindPowerPlatformService.SyncDataServices.Http;
+using WindPowerPlatformService.SyncDataServices.Grpc;
       
 
 namespace WindPowerPlatformService
@@ -49,6 +52,8 @@ namespace WindPowerPlatformService
             services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
             services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
+            services.AddGrpc();
+
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
@@ -79,6 +84,12 @@ namespace WindPowerPlatformService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGrpcService<GrpcWindPowerPlatformService>();
+
+                endpoints.MapGet("/protos/windpowerplatforms.proto", async context =>
+                {
+                    await context.Response.WriteAsync(File.ReadAllText("Protos/windpowerplatforms.proto"));
+                });
             });
 
             DbSeeder.PreparePopulation(app, env.IsProduction());

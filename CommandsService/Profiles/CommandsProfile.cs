@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using CommandsService.Models;
 using CommandsService.Dtos;
+using WindPowerPlatformService;
 
 namespace CommandsService.Profiles
 {
@@ -17,6 +18,13 @@ namespace CommandsService.Profiles
             CreateMap<Command, CommandReadDto>();
             CreateMap<WindPowerPlatformPublishedDto, WindPowerPlatform>()
                 .ForMember(dest => dest.ExternalId, opt => opt.MapFrom(src => src.Id));
+
+            CreateMap<GrpcWindPowerPlatformModel, WindPowerPlatform>()
+                .ForMember(dest => dest.ExternalId, opt => opt.MapFrom(src => src.PlatformId))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                //TODO -- check the last 2 property mappings
+                // .ForMember(dest => dest.Manufacturer, opt => opt.Ignore())
+                // .ForMember(dest => dest.Description, opt => opt.Ignore());
         }
     }
 }
