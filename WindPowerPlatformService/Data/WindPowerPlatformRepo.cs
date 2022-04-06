@@ -21,6 +21,7 @@ namespace  WindPowerPlatformService.Data
 
         public WindPowerPlatform GetPlatformById(int id)
         {
+            //small reminder: use FirstOrDefault() to skip 500-error
             return _context.WindPowerPlatforms.FirstOrDefault(p => p.Id == id);
         }
 
