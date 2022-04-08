@@ -20,8 +20,15 @@ namespace WindPowerPlatformService.UnitTests
             _windPowerPlatformRepo = new WindPowerPlatformRepo(_appDbContextMock);
         }
 
+        [TearDown]
+        public void DisposeTest()
+        {
+            _appDbContextMock = null;
+            _windPowerPlatformRepo = null;
+        }
+
         [Test]
-        public void GetAllPlatforms_ReturnsAllPlatforms()
+        public void GetAllPlatforms_ShouldReturnAllPlatforms()
         {
             // Arrange
             int expectedPlatformCount = 5;
@@ -41,7 +48,7 @@ namespace WindPowerPlatformService.UnitTests
         }
 
         [Test]
-        public void GetPlatformById_WithValidPlatformId_ReturnsPlatform()
+        public void GetPlatformById_WithValidPlatformId_ShouldReturnPlatform()
         {
             // Arrange
             int platformId = 4;
@@ -60,16 +67,48 @@ namespace WindPowerPlatformService.UnitTests
         }
 
         [Test]
-        public void GetPlatformById_WithNotValidPlatformId_ReturnsNull()
+        public void GetPlatformById_WithNotValidPlatformId_ShouldReturnNull()
         {
             // Arrange
-            int notValidPlatformId = 7;
+            int notValidPlatformId = 0;
 
             // Act
             var platform = _windPowerPlatformRepo.GetPlatformById(notValidPlatformId);
 
             // Assert
             Assert.IsNull(platform);
+        }
+
+        [Test]
+        public void CreatePlatform_WithNullableModel_ShouldReturnException()
+        {
+            // Arrange
+            WindPowerPlatform platform = null;
+
+            // Act & Assert
+            Assert.Throws(typeof(ArgumentNullException), () => _windPowerPlatformRepo.CreatePlatform(platform));
+        }
+
+        [Test]
+        public void CreatePlatform_WithValidModel_ShouldCreatePlatform()
+        {
+            // Arrange
+            var platformToCreate = new WindPowerPlatform()
+            {
+                Name = "NewPlatform",
+                Manufacturer = "ManufacturerA",
+                Description = "DescriptionA"
+            };
+
+            var existedPlatformCount = _windPowerPlatformRepo.GetAllPlatforms().Count();
+
+            // Act
+            _windPowerPlatformRepo.CreatePlatform(platformToCreate);
+            _windPowerPlatformRepo.SaveChanges();            
+            var platformListWithNewItem = _windPowerPlatformRepo.GetAllPlatforms();
+
+            // Assert
+            Assert.AreEqual(existedPlatformCount + 1, platformListWithNewItem.Count());
         }
 
         private AppDbContext GetDatabaseContext()

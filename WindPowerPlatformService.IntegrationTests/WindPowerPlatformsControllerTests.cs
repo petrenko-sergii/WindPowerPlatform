@@ -17,25 +17,25 @@ namespace WindPowerPlatformService.IntegrationTests
     [TestFixture]
     public class WindPowerPlatformsControllerTests
     {
-        private Mock<IWindPowerPlatformRepo> mockRepository;
-        private Mock<IMapper> mockMapper;
-        private Mock<ICommandDataClient> commandDataClient;
-        private Mock<IMessageBusClient> messageBusClient;
+        private Mock<IWindPowerPlatformRepo> _mockRepository;
+        private Mock<IMapper> _mockMapper;
+        private Mock<ICommandDataClient> _commandDataClient;
+        private Mock<IMessageBusClient> _messageBusClient;
 
         [SetUp]
         public void Setup()
         {
-            mockRepository = new Mock<IWindPowerPlatformRepo>();
-            mockMapper = new Mock<IMapper>();
-            commandDataClient = new Mock<ICommandDataClient>();
-            messageBusClient = new Mock<IMessageBusClient>();
+            _mockRepository = new Mock<IWindPowerPlatformRepo>();
+            _mockMapper = new Mock<IMapper>();
+            _commandDataClient = new Mock<ICommandDataClient>();
+            _messageBusClient = new Mock<IMessageBusClient>();
         }
 
         [Test]
         public void GetPlatformById_WithValidPlatformId_GetCorrectPlatform()
         {
             // Arrange
-            mockRepository.Setup(x => x.GetPlatformById(It.IsAny<int>()))
+            _mockRepository.Setup(x => x.GetPlatformById(It.IsAny<int>()))
                 .Returns(
                     new WindPowerPlatform
                     {
@@ -46,14 +46,14 @@ namespace WindPowerPlatformService.IntegrationTests
                     }
                 );
 
-            mockMapper.Setup(m => m.Map<WindPowerPlatformReadDto>(It.IsAny<WindPowerPlatform>()))
+            _mockMapper.Setup(m => m.Map<WindPowerPlatformReadDto>(It.IsAny<WindPowerPlatform>()))
                 .Returns(GetTestWindPowerPlatformReadDto());
 
             var controller = new WindPowerPlatformsController(
-                                mockRepository.Object,
-                                mockMapper.Object,
-                                commandDataClient.Object,
-                                messageBusClient.Object);
+                                _mockRepository.Object,
+                                _mockMapper.Object,
+                                _commandDataClient.Object,
+                                _messageBusClient.Object);
 
             string expectedPlatformName = "PlatformA";
             string expectedPlatformDescription = "DescriptionA";
@@ -75,10 +75,10 @@ namespace WindPowerPlatformService.IntegrationTests
             var invalidPlatformId = 5;
 
             var controller = new WindPowerPlatformsController(
-                                mockRepository.Object,
-                                mockMapper.Object,
-                                commandDataClient.Object,
-                                messageBusClient.Object);
+                                _mockRepository.Object,
+                                _mockMapper.Object,
+                                _commandDataClient.Object,
+                                _messageBusClient.Object);
 
             // Act
             var response = controller.GetPlatformById(invalidPlatformId);
@@ -95,10 +95,10 @@ namespace WindPowerPlatformService.IntegrationTests
             var invalidPlatformId = 5;
 
             var controller = new WindPowerPlatformsController(
-                                mockRepository.Object,
-                                mockMapper.Object,
-                                commandDataClient.Object,
-                                messageBusClient.Object);
+                                _mockRepository.Object,
+                                _mockMapper.Object,
+                                _commandDataClient.Object,
+                                _messageBusClient.Object);
 
             // Act
             var response = controller.GetPlatformById(invalidPlatformId);
@@ -112,16 +112,17 @@ namespace WindPowerPlatformService.IntegrationTests
         [Test]
         public void GetWindPowerPlatforms_ShouldReturnPlatforms()
         {
+            // Arrange
             IEnumerable<WindPowerPlatformReadDto> data = GetTestWindPowerPlatformReadDtos();
 
-            mockMapper.Setup(m => m.Map<IEnumerable<WindPowerPlatformReadDto>>(It.IsAny<IEnumerable<WindPowerPlatform>>()))
+            _mockMapper.Setup(m => m.Map<IEnumerable<WindPowerPlatformReadDto>>(It.IsAny<IEnumerable<WindPowerPlatform>>()))
                 .Returns(data);
 
             var controller = new WindPowerPlatformsController(
-                                mockRepository.Object,
-                                mockMapper.Object,
-                                commandDataClient.Object,
-                                messageBusClient.Object);
+                                _mockRepository.Object,
+                                _mockMapper.Object,
+                                _commandDataClient.Object,
+                                _messageBusClient.Object);
 
             // Act
             var response = controller.GetWindPowerPlatforms();
